@@ -1,12 +1,14 @@
-import { Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import "./side-menu.css";
-import GridViewIcon from "@mui/icons-material/GridView";
-import TimelineIcon from "@mui/icons-material/Timeline";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
+import GridViewIcon from "@mui/icons-material/GridView";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import { Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import useIsMobile from "../../hooks/isMobile";
+import "./side-menu.css";
 
 export const SideMenu = () => {
+  const isMobile = useIsMobile();
   const menuItems = [
     {
       path: "/dashboard",
@@ -42,15 +44,21 @@ export const SideMenu = () => {
         }}
       >
         {item.icon}
-        <Typography
-          sx={{
-            paddingLeft: 1,
-          }}
-        >
-          {item.title}
-        </Typography>
+        {!isMobile && (
+          <Typography
+            sx={{
+              paddingLeft: 1,
+            }}
+          >
+            {item.title}
+          </Typography>
+        )}
       </NavLink>
     ));
   };
-  return <div className="menu-item-container">{renderMenuItems()}</div>;
+  return (
+    <div className={isMobile ? 'sm-menu-item-container' : 'menu-item-container'}>
+      {renderMenuItems()}
+    </div>
+  );
 };
