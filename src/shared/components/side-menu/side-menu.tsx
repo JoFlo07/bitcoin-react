@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import "./side-menu.css";
 
@@ -27,12 +28,12 @@ export const SideMenu = () => {
         to={item.path}
         style={({ isActive }) => {
           return {
-            color: isActive ? "#e96f48" : "#222121",
-            fontWeight: 600,
+            color: isActive ? "#e96f48" : "#ffffff",
+            fontWeight: isActive ? 600 : 400,
           };
         }}
       >
-        {item.title}
+        <Typography>{item.title}</Typography>
       </NavLink>
     ));
   };
