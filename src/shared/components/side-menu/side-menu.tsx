@@ -11,7 +11,7 @@ export const SideMenu = () => {
   const isMobile = useIsMobile();
   const menuItems = [
     {
-      path: "/dashboard",
+      path: "/",
       title: "Dashboard",
       icon: <GridViewIcon />,
     },
