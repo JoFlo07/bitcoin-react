@@ -8,7 +8,7 @@ export interface ExChangeRate {
   };
 }
 
-export interface BTCStatistic {
+export interface BTCStatisticApiResponse {
   market_price_usd: number;
   hash_rate: number;
   total_fees_btc: number;
@@ -29,4 +29,13 @@ export interface BTCStatistic {
   trade_volume_btc: number;
   trade_volume_usd: number;
   timestamp: number;
+}
+
+export type BTCStatistics = {
+  marketcap: number;
+  totalbc: number;
+  "24hrtransactioncount": number;
+  "24hrbtcsent": number;
+  hashrate: number;
+  getdifficulty: number;
 }

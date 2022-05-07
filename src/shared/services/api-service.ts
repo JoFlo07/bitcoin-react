@@ -1,25 +1,19 @@
-import { BTCStatistic, ExChangeRate } from "../models/interfaces";
-// EXCHANGE RATE API
-const exchangeRateApi = "https://blockchain.info/ticker";
-// BTC STATS API
-const btcStatsApi = "https://api.blockchain.info/stats";
+import { ExChangeRate } from "../models/interfaces";
+// BTC API
+const bitcoinAPI = "https://api.blockchain.info";
 
 export const getExchangeRates = async () => {
-  try {
-    const response = await fetch(exchangeRateApi);
-    const exchangeRateData = (await response.json()) as ExChangeRate;
-    return exchangeRateData;
-  } catch (error) {
-    console.error("Error loading exchange rate data", error);
-  }
+  const exchangeRateData = (await fetch(`${bitcoinAPI}/ticker`).then((res) =>
+    res.json()
+  )) as ExChangeRate;
+  return exchangeRateData;
 };
 
-export const getBTCStats = async () => {
-  try {
-    const response = await fetch(btcStatsApi);
-    const btcStatsData = (await response.json()) as BTCStatistic;
-    return btcStatsData;
-  } catch (error) {
-    console.error("Error loading btc stats", error);
-  }
-}
+export const getBTCStatistic = async (stat: string) => {
+  const btcStat = (await fetch(`${bitcoinAPI}/q/${stat}`).then((res) =>
+    res.json()
+  )) as number;
+  return {
+    [stat]: btcStat,
+  };
+};

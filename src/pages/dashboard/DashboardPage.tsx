@@ -8,15 +8,18 @@ import { BTCExchangeRateCard } from "./components/btc-exchange-rate-card/BtcExch
 
 export const DashboardPage = () => {
   const pageTitle = "Dashboard";
-  const [exChangeRates, setExChangeRates] = useState<ExChangeRate>({});
+  const [exChangeRates, setExChangeRates] = useState<ExChangeRate>();
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
-      const rates = await getExchangeRates();
-      if (rates) {
-        console.log(rates);
-        setExChangeRates(rates);
+      try {
+        const rates = await getExchangeRates();
+        if (rates) {
+          setExChangeRates(rates);
+        }
+      } catch (error) {
+        console.error("Error loading exchange rates", error);
       }
     };
 
@@ -30,9 +33,8 @@ export const DashboardPage = () => {
       const sellValue = exchangeRatesInfo[key].buy.toString();
       const currencyName = exchangeRatesInfo[key].symbol;
       return (
-        <Grid item xs={isMobile ? 12 : 6} md={3} lg={3}>
+        <Grid item xs={isMobile ? 12 : 6} md={3} lg={3} key={key}>
           <BTCExchangeRateCard
-            key={key}
             buyValue={buyValue}
             sellValue={sellValue}
             currencyName={currencyName}
@@ -45,12 +47,8 @@ export const DashboardPage = () => {
     <>
       <HeaderBar title={pageTitle} />
       <Container sx={{ overflow: "auto", height: "100%" }}>
-        <Grid
-          container
-          spacing={2}
-          sx={{ marginBottom: 20, marginTop: 5 }}
-        >
-          {renderExchangeRateCards(exChangeRates)}
+        <Grid container spacing={2} sx={{ marginBottom: 20, marginTop: 5 }}>
+          {exChangeRates && renderExchangeRateCards(exChangeRates)}
         </Grid>
       </Container>
     </>
