@@ -10,17 +10,30 @@ import {
 import { useState } from "react";
 import NumberFormat from "react-number-format";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
+import { convertCurrencyToBTC } from "../../shared/services/api-service";
 
 export const BTCConverterPage = () => {
   const pageTitle = "Converter";
-  const [amount, setAmount] = useState<string>();
+  const [displayAmount, setDisplayAmount] = useState<string>();
+  const [amount, setAmount] = useState<string>('');
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [convertedBTC, setConvertedBTC] = useState("");
   const currencyOptions = ["EUR", "USD", "AUD", "NZD", "GBP"];
 
-  const handleSelect = (event: SelectChangeEvent) => {
+  const handleSelect = async (event: SelectChangeEvent, amount: string) => {
     setSelectedCurrency(event.target.value);
+    await calculateBTCValue(event.target.value, amount);
   };
+
+  const calculateBTCValue = async (currency: string, value: string) => {
+    const valueAsNumber = Number(value);
+    const btcAmount = await convertCurrencyToBTC(
+      currency,
+      valueAsNumber
+    );
+    setConvertedBTC(String(btcAmount));
+  };
+
   return (
     <>
       <HeaderBar title={pageTitle} />
@@ -43,16 +56,18 @@ export const BTCConverterPage = () => {
             customInput={OutlinedInput}
             isNumericString={true}
             thousandSeparator={true}
-            value={amount}
+            value={displayAmount}
             decimalScale={2}
-            onValueChange={(values) => {
+            onValueChange={async (values) => {
               const { formattedValue, value } = values;
-              setAmount(formattedValue);
+              setDisplayAmount(formattedValue);
+              setAmount(value);
+              await calculateBTCValue(selectedCurrency, value);
             }}
           />
           <Select
             value={selectedCurrency}
-            onChange={handleSelect}
+            onChange={(e) => handleSelect(e, amount)}
             sx={{ minWidth: 100 }}
           >
             {currencyOptions.map((opt) => (
