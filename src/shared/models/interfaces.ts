@@ -7,3 +7,12 @@ export interface ExChangeRate {
     symbol: string;
   };
 }
+
+export interface BTCStatistics {
+  marketcap: number;
+  totalbc: number;
+  "24hrtransactioncount": number;
+  "24hrbtcsent": number;
+  hashrate: number;
+  getdifficulty: number;
+}
