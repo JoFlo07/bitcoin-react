@@ -6,3 +6,5 @@ export const statsToLoad = [
   "getdifficulty",
   "totalbc",
 ];
+
+export const currencyOptions = ["EUR", "USD", "AUD", "NZD", "GBP"];
