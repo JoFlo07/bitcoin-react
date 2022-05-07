@@ -27,3 +27,12 @@ export const countryFlagMap: { [key: string]: string } = {
   TWD: "TW",
   USD: "US",
 };
+
+export const BTCStatisticMap  = {
+  marketcap: 'Market Cap',
+  totalbc: 'Total Bitcoin',
+  "24hrtransactioncount": 'Transactions last 24h',
+  "24hrbtcsent": 'BTC sent last 24h',
+  hashrate: 'Hashrate',
+  getdifficulty: 'Difficulty',
+}
