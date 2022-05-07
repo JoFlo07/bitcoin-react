@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
+import useIsMobile from "../../shared/hooks/isMobile";
 import { ExChangeRate } from "../../shared/models/interfaces";
 import { getExchangeRates } from "../../shared/services/api-service";
 import { BTCExchangeRateCard } from "./components/btc-exchange-rate-card/BtcExchangeRateCard";
@@ -8,6 +9,7 @@ import { BTCExchangeRateCard } from "./components/btc-exchange-rate-card/BtcExch
 export const DashboardPage = () => {
   const pageTitle = "Dashboard";
   const [exChangeRates, setExChangeRates] = useState<ExChangeRate>({});
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
@@ -28,7 +30,7 @@ export const DashboardPage = () => {
       const sellValue = exchangeRatesInfo[key].buy.toString();
       const currencyName = exchangeRatesInfo[key].symbol;
       return (
-        <Grid item xs={3}>
+        <Grid item xs={isMobile ? 12 : 6} md={3} lg={3}>
           <BTCExchangeRateCard
             key={key}
             buyValue={buyValue}
@@ -42,8 +44,12 @@ export const DashboardPage = () => {
   return (
     <>
       <HeaderBar title={pageTitle} />
-      <Container sx={{ overflow: "auto", height: '100%', paddingY: 5, }}>
-        <Grid container spacing={2} sx={{ marginBottom: 20 }}>
+      <Container sx={{ overflow: "auto", height: "100%" }}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ marginBottom: 20, marginTop: 5 }}
+        >
           {renderExchangeRateCards(exChangeRates)}
         </Grid>
       </Container>

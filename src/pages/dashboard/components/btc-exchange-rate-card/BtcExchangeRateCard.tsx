@@ -15,17 +15,17 @@ export const BTCExchangeRateCard: React.FC<BTCExchangeRateCardProps> = ({
 }) => {
   const countryCode = countryFlagMap[currencyName];
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Flag country={countryCode} />
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {currencyName}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {buyValue}
+          BUY: {buyValue}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {sellValue}
+          SELL: {sellValue}
         </Typography>
       </CardContent>
     </Card>
