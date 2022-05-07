@@ -35,6 +35,7 @@ export const SideMenu = () => {
   const renderMenuItems = () => {
     return menuItems.map((item) => (
       <NavLink
+        key={item.path}
         to={item.path}
         style={({ isActive }) => {
           return {
