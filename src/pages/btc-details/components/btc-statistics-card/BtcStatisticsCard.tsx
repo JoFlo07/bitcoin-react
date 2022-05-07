@@ -1,18 +1,7 @@
-import {
-  Card,
-  CardContent,
-  Chip,
-  Grid,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import BtcIcon from "../../../../assets/icons/btc.svg";
-import {
-  detailsTitle,
-  paperItem,
-  statItemTitle,
-} from "../../../../constants/default.styles";
+import { detailsTitle } from "../../../../constants/default.styles";
 import { BTCStatistics } from "../../../../shared/models/interfaces";
 import { BTCStatisticMap } from "../../../../shared/utils/ui";
 import { BTCStatisticItem } from "../btc-statistic-item/BtcStatisticItem";
