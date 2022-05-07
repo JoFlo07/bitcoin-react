@@ -14,7 +14,7 @@ import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 export const BTCConverterPage = () => {
   const pageTitle = "Converter";
   const [amount, setAmount] = useState<string>();
-  const [selectedCurrency, setSelectedCurrency] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [convertedBTC, setConvertedBTC] = useState("");
   const currencyOptions = ["EUR", "USD", "AUD", "NZD", "GBP"];
 
@@ -56,7 +56,9 @@ export const BTCConverterPage = () => {
             sx={{ minWidth: 100 }}
           >
             {currencyOptions.map((opt) => (
-              <MenuItem value={opt}>{opt}</MenuItem>
+              <MenuItem key={opt} value={opt}>
+                {opt}
+              </MenuItem>
             ))}
           </Select>
         </Box>
