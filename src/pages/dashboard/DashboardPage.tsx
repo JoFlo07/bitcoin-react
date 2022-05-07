@@ -13,6 +13,7 @@ export const DashboardPage = () => {
     const fetchExchangeRates = async () => {
       const rates = await getExchangeRates();
       if (rates) {
+        console.log(rates);
         setExChangeRates(rates);
       }
     };
