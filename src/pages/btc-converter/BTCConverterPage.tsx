@@ -1,8 +1,7 @@
+import { HeaderBar } from "../../shared/components/header-bar/header-bar";
+
 export const BTCConverterPage = () => {
-    return (
-      <div>
-        CONVERTER
-      </div>
-    );
+  const pageTitle = "Converter";
+  return <HeaderBar title={pageTitle} />;
   }
   

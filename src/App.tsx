@@ -33,6 +33,10 @@ const theme = createTheme({
       main: "#f2a900",
       contrastText: "#ffffff",
     },
+    secondary: {
+      main: "#f7f7f7",
+      contrastText: "#2a2a2a"
+    }
   },
 });
 

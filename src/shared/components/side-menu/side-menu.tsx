@@ -11,7 +11,7 @@ export const SideMenu = () => {
   const isMobile = useIsMobile();
   const menuItems = [
     {
-      path: "/dashboard",
+      path: "/",
       title: "Dashboard",
       icon: <GridViewIcon />,
     },
@@ -35,6 +35,7 @@ export const SideMenu = () => {
   const renderMenuItems = () => {
     return menuItems.map((item) => (
       <NavLink
+        key={item.path}
         to={item.path}
         style={({ isActive }) => {
           return {

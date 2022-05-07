@@ -1,8 +1,6 @@
+import { HeaderBar } from "../../shared/components/header-bar/header-bar";
+
 export const BTCStatisticsPage = () => {
-    return (
-      <div>
-        STATISTICS
-      </div>
-    );
-  }
-  
+  const pageTitle = "Statistics";
+  return <HeaderBar title={pageTitle} />;
+};
