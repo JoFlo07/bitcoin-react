@@ -1,6 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { statsToLoad } from "../../constants/btc-statistics";
+import { statsToLoad } from "../../constants/values";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import { BTCStatistics } from "../../shared/models/interfaces";
 import { getBTCStatistic } from "../../shared/services/api-service";
