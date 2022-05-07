@@ -17,3 +17,10 @@ export const getBTCStatistic = async (stat: string) => {
     [stat]: btcStat,
   };
 };
+
+export const convertCurrencyToBTC = async (currency: string, value: number) => {
+  const btcAmount = await fetch(
+    `${bitcoinAPI}/tobtc?currency=${currency}&value=${value}`
+  ).then((res) => res.json()) as number;
+  return btcAmount;
+};
