@@ -1,9 +1,21 @@
-import { Card, CardContent, Grid, Paper, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Chip,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import BtcIcon from "../../../../assets/icons/btc.svg";
-import { statItemTitle } from "../../../../constants/default.styles";
+import {
+  detailsTitle,
+  paperItem,
+  statItemTitle,
+} from "../../../../constants/default.styles";
 import { BTCStatistics } from "../../../../shared/models/interfaces";
 import { BTCStatisticMap } from "../../../../shared/utils/ui";
+import { BTCStatisticItem } from "../btc-statistic-item/BtcStatisticItem";
 interface BTCStatisticCardProps {
   btcStats: BTCStatistics;
 }
@@ -16,26 +28,11 @@ export const BTCStatisticCard: React.FC<BTCStatisticCardProps> = ({
     return keys.map((key) => {
       return (
         <Grid item xs={8} md={6} lg={3} key={key}>
-          <Paper
-            elevation={1}
-            sx={{
-              height: 100,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              padding: 2,
-            }}
-          >
-            <Typography sx={statItemTitle}>
-              {BTCStatisticMap[key as keyof BTCStatistics].title}
-            </Typography>
-            <Typography>
-              {stats[key as keyof BTCStatistics]}
-              {" "}
-              {BTCStatisticMap[key as keyof BTCStatistics].unit}
-            </Typography>
-          </Paper>
+          <BTCStatisticItem
+            label={BTCStatisticMap[key as keyof BTCStatistics].title}
+            unit={BTCStatisticMap[key as keyof BTCStatistics].unit}
+            value={stats[key as keyof BTCStatistics]}
+          />
         </Grid>
       );
     });
@@ -51,7 +48,7 @@ export const BTCStatisticCard: React.FC<BTCStatisticCardProps> = ({
           }}
         >
           <img src={BtcIcon} alt="icon bitcoin" height={30} width={30} />
-          <Typography sx={{ ...statItemTitle, paddingLeft: 2 }}>
+          <Typography sx={{ ...detailsTitle, paddingLeft: 2 }}>
             BTC Bitcoin
           </Typography>
         </Box>
