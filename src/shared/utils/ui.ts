@@ -28,11 +28,17 @@ export const countryFlagMap: { [key: string]: string } = {
   USD: "US",
 };
 
-export const BTCStatisticMap  = {
-  marketcap: 'Market Cap',
-  totalbc: 'Total Bitcoin',
-  "24hrtransactioncount": 'Transactions last 24h',
-  "24hrbtcsent": 'BTC sent last 24h',
-  hashrate: 'Hashrate',
-  getdifficulty: 'Difficulty',
-}
+export const BTCStatisticMap = {
+  marketcap: {
+    title: "Market Cap",
+    unit: "USD",
+  },
+  totalbc: {
+    title: "Total Bitcoin",
+    unit: "BTC",
+  },
+  "24hrtransactioncount": { title: "Transactions last 24h", unit: "" },
+  "24hrbtcsent": { title: "BTC sent last 24h", unit: "BTC" },
+  hashrate: { title: "Hashrate", unit: "GH/s" },
+  getdifficulty: { title: "Difficulty", unit: "T" },
+};
