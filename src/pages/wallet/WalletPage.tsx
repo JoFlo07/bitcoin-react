@@ -27,7 +27,7 @@ export const WalletPage = () => {
   const [btcAmount, setBtcAmount] = useState("");
 
   const handleInput = async (values: NumberFormatValues) => {
-    const { formattedValue, value } = values;
+    const { formattedValue } = values;
     setBtcAmount(formattedValue);
   };
 
