@@ -2,7 +2,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TimelineIcon from "@mui/icons-material/Timeline";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import useIsMobile from "../../hooks/isMobile";
 import "./side-menu.css";
@@ -58,8 +58,8 @@ export const SideMenu = () => {
     ));
   };
   return (
-    <div className={isMobile ? 'sm-menu-item-container' : 'menu-item-container'}>
+    <Box className={isMobile ? 'sm-menu-item-container' : 'menu-item-container'}>
       {renderMenuItems()}
-    </div>
+    </Box>
   );
 };

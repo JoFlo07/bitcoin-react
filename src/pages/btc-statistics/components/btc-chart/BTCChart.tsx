@@ -19,7 +19,7 @@ export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
 
   return (
     <Box sx={{ marginX: 2, marginY: 5 }}>
-      <div id="chart-container"></div>
+      <Box id="chart-container"></Box>
     </Box>
   );
 };
