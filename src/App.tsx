@@ -1,4 +1,5 @@
 import {
+  Box,
   createTheme,
   Palette,
   PaletteOptions,
@@ -43,19 +44,19 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="app-wrapper">
-        <nav className="side-content">
+      <Box className="app-wrapper">
+        <Box className="side-content">
           <SideMenu />
-        </nav>
-        <div className="main-content">
+        </Box>
+        <Box className="main-content">
           <Routes>
             <Route path="/" element={<DashboardPage />}></Route>
             <Route path="/statistics" element={<BTCStatisticsPage />}></Route>
             <Route path="/converter" element={<BTCConverterPage />}></Route>
             <Route path="/details" element={<BTCDetailsPage />}></Route>
           </Routes>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
