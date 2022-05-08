@@ -36,8 +36,8 @@ export const BTCDetailsPage = () => {
   return (
     <>
       <HeaderBar title={pageTitle} />
-      <Container sx={{ height: "100%" }}>
-        <Grid container sx={{ marginTop: 5 }}>
+      <Container sx={{ overflow: "auto", height: "100%" }}>
+        <Grid container sx={{ marginY: 5 }}>
           {btcStats && <BTCStatisticCard btcStats={btcStats} />}
         </Grid>
       </Container>

@@ -16,7 +16,7 @@ export const BTCStatisticCard: React.FC<BTCStatisticCardProps> = ({
     const keys = Object.keys(stats);
     return keys.map((key) => {
       return (
-        <Grid item xs={8} md={6} lg={3} key={key}>
+        <Grid item xs={12} md={6} lg={3} key={key}>
           <BTCStatisticItem
             label={BTCStatisticMap[key as keyof BTCStatistics].title}
             unit={BTCStatisticMap[key as keyof BTCStatistics].unit}

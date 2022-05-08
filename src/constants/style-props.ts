@@ -6,6 +6,11 @@ export const titleFontStyle: SxProps<Theme> = {
   fontWeight: 500,
 };
 
+export const mobileTitleFontStyle: SxProps<Theme> = {
+  fontSize: 16,
+  fontWeight: 500,
+};
+
 export const detailsTitle: SxProps<Theme> = {
   fontSize: 16,
   fontWeight: 600,
@@ -71,7 +76,7 @@ export const appBar: SxProps<Theme> = {
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  paddingX: 5,
+  paddingX: 3,
 };
 
 export const appWrapper: SxProps<Theme> = {
