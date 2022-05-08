@@ -16,3 +16,17 @@ export interface BTCStatistics {
   hashrate: number;
   getdifficulty: number;
 }
+
+export interface BTCChartData {
+  status: string;
+  name: string;
+  unit: string;
+  period: string;
+  description: string;
+  values: BTCChartDataPoint[];
+}
+
+export interface BTCChartDataPoint {
+  x: number;
+  y: number;
+}
