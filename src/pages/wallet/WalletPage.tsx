@@ -12,7 +12,7 @@ import { NumberFormatValues } from "react-number-format";
 import CustomSnackbar from "../../shared/components/custom-snackbar/CustomSnackbar";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
-import { PageTitle } from "../../shared/models/enums";
+import { PageTitle, StorageKey } from "../../shared/models/enums";
 import { saveItemInStorage } from "../../shared/services/local-storage-service";
 import { BitcoinInput } from "./components/bitcoin-input/BitcoinInput";
 
@@ -33,7 +33,7 @@ export const WalletPage = () => {
 
   const onSave = (amount: string) => {
     try {
-      saveItemInStorage("mybtc", amount);
+      saveItemInStorage(StorageKey.MY_BTC, amount);
       setBtcAmount("");
       setSnackBarOpen(true);
     } catch (error) {

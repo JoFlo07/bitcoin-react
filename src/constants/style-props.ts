@@ -18,6 +18,12 @@ export const statItemTitle: SxProps<Theme> = {
   marginBottom: 2,
 };
 
+export const btcValueChip: SxProps<Theme> = {
+  width: "fit-content",
+  display: "flex",
+  justifyContent: "flex-start",
+};
+
 export const paperItem: SxProps<Theme> = {
   height: 100,
   display: "flex",
@@ -37,7 +43,7 @@ export const converterGrid: SxProps<Theme> = {
   paddingX: 1,
   border: "1px solid black",
   borderRadius: 5,
-  backgroundColor: '#ffffff'
+  backgroundColor: "#ffffff",
 };
 export const converterGridMobile: SxProps<Theme> = {
   ...converterGrid,
@@ -62,7 +68,9 @@ export const convertedBTCText: SxProps<Theme> = {
 export const appBar: SxProps<Theme> = {
   height: 50,
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
   paddingX: 5,
 };
 

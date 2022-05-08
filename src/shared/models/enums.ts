@@ -13,3 +13,7 @@ export enum PageTitle {
   CONVERTER = "BTC Converter",
   WALLET = "My Bitcoin",
 }
+
+export enum StorageKey {
+  MY_BTC = "mybtc",
+}
