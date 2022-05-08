@@ -1,6 +1,6 @@
 # LeBitcoin
 
-LeBitcoin is a React application which is displaying useful information form the blockchain API.
+LeBitcoin is a React application which is displaying useful information about BTC from the blockchain API.
 
 ## Requirements
 * Node v14+
@@ -10,7 +10,7 @@ To run the app:
 
 1. Clone the repository
 ```bash
-https://github.com/JoFlo07/bitcoin-react
+git clone https://github.com/JoFlo07/bitcoin-react.git
 cd bitcoin-react
 ```
 2. Install the dependencies
