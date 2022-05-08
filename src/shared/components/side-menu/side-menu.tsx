@@ -2,6 +2,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TimelineIcon from "@mui/icons-material/Timeline";
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import {
@@ -10,29 +11,35 @@ import {
   smMenuItemContainer,
 } from "../../../constants/style-props";
 import useIsMobile from "../../hooks/isMobile";
+import { MainRoutes } from "../../models/enums";
 
 export const SideMenu = () => {
   const isMobile = useIsMobile();
   const menuItems = [
     {
-      path: "/",
+      path: MainRoutes.DASHBOARD,
       title: "Dashboard",
       icon: <GridViewIcon />,
     },
     {
-      path: "/details",
+      path: MainRoutes.DETAIL,
       title: "Details",
       icon: <FactCheckIcon />,
     },
     {
-      path: "/converter",
+      path: MainRoutes.CONVERTER,
       title: "Converter",
       icon: <CalculateIcon />,
     },
     {
-      path: "/statistics",
+      path: MainRoutes.STATISTICS,
       title: "Statistics",
       icon: <TimelineIcon />,
+    },
+    {
+      path: MainRoutes.WALLET,
+      title: "Wallet",
+      icon: <AccountBalanceWalletIcon />,
     },
   ];
 

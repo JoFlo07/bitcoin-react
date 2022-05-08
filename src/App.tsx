@@ -5,6 +5,7 @@ import { BTCConverterPage } from "./pages/btc-converter/BTCConverterPage";
 import { BTCDetailsPage } from "./pages/btc-details/BTCDetailsPage";
 import { BTCStatisticsPage } from "./pages/btc-statistics/BTCStatisticsPage";
 import { DashboardPage } from "./pages/dashboard/DashboardPage";
+import { WalletPage } from "./pages/wallet/WalletPage";
 import { SideMenu } from "./shared/components/side-menu/side-menu";
 import { MainRoutes } from "./shared/models/enums";
 
@@ -51,6 +52,10 @@ function App() {
             <Route
               path={MainRoutes.DETAIL}
               element={<BTCDetailsPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.WALLET}
+              element={<WalletPage />}
             ></Route>
           </Routes>
         </Box>

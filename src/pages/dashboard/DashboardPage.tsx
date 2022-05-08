@@ -2,12 +2,13 @@ import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
+import { PageTitle } from "../../shared/models/enums";
 import { ExChangeRate } from "../../shared/models/interfaces";
 import { getExchangeRates } from "../../shared/services/api-service";
 import { BTCExchangeRateCard } from "./components/btc-exchange-rate-card/BtcExchangeRateCard";
 
 export const DashboardPage = () => {
-  const pageTitle = "Dashboard";
+  const pageTitle = PageTitle.DASHBOARD;
   const [exChangeRates, setExChangeRates] = useState<ExChangeRate>();
   const isMobile = useIsMobile();
 
