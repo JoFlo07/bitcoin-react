@@ -6,5 +6,6 @@ export const convertBTCtoCurrency = (
   btcAmount: string
 ) => {
   const eurValue = exchangeRate[currency];
-  return String(eurValue.last * Number(btcAmount));
+  const result = (eurValue.last * Number(btcAmount)).toFixed(2);
+  return String(result);
 };
