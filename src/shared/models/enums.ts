@@ -17,3 +17,11 @@ export enum PageTitle {
 export enum StorageKey {
   MY_BTC = "mybtc",
 }
+
+export enum Currency {
+  EUR = "EUR",
+  USD = "USD",
+  AUD = "AUD",
+  NZD = "NZD",
+  GBP = "GBP",
+}
