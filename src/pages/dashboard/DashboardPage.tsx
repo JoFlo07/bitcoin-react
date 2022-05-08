@@ -1,18 +1,22 @@
-import { Chip, Container, Grid, Typography } from "@mui/material";
+import { Chip, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { btcValueChip, titleFontStyle } from "../../constants/style-props";
+import { btcValueChip, dashboardTitle } from "../../constants/style-props";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
-import { PageTitle, StorageKey } from "../../shared/models/enums";
+import { Currency, PageTitle, StorageKey } from "../../shared/models/enums";
 import { ExChangeRate } from "../../shared/models/interfaces";
 import { getExchangeRates } from "../../shared/services/api-service";
 import { retrieveItemFromStorage } from "../../shared/services/local-storage-service";
+import { convertBTCtoCurrency } from "../../shared/utils/calc";
 import { BTCExchangeRateCard } from "./components/btc-exchange-rate-card/BtcExchangeRateCard";
 
 export const DashboardPage = () => {
   const pageTitle = PageTitle.DASHBOARD;
   const [exChangeRates, setExChangeRates] = useState<ExChangeRate>();
-  const [myBtcAmount, setMayBtcAmount] = useState("");
+  const [myBtcAmount, setMyBtcAmount] = useState({
+    btc: "",
+    eur: "",
+  });
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -21,13 +25,20 @@ export const DashboardPage = () => {
         const rates = await getExchangeRates();
         if (rates) {
           setExChangeRates(rates);
+          const storedBtcAmount = retrieveItemFromStorage(StorageKey.MY_BTC);
+          if (storedBtcAmount) {
+            const btcAmountInEur = convertBTCtoCurrency(
+              Currency.EUR,
+              rates,
+              storedBtcAmount
+            );
+            setMyBtcAmount({ btc: storedBtcAmount, eur: btcAmountInEur });
+          }
         }
       } catch (error) {
         console.error("Error loading exchange rates", error);
       }
     };
-    const storedBtcAmount = retrieveItemFromStorage(StorageKey.MY_BTC);
-    if (storedBtcAmount) setMayBtcAmount(storedBtcAmount);
     fetchExchangeRates();
   }, []);
 
@@ -51,9 +62,9 @@ export const DashboardPage = () => {
   return (
     <>
       <HeaderBar title={pageTitle}>
-        {myBtcAmount && (
+        {myBtcAmount.btc && (
           <Chip
-            label={`My BTC: ${myBtcAmount}`}
+            label={`My Wallet: ${myBtcAmount.btc} BTC | ${myBtcAmount.eur} €`}
             sx={btcValueChip}
             color="primary"
           />
@@ -61,8 +72,9 @@ export const DashboardPage = () => {
       </HeaderBar>
       <Container sx={{ overflow: "auto", height: "100%" }}>
         <Chip
+          variant="outlined"
           color="primary"
-          sx={{ marginY: 5, fontSize: 16, padding: 3 }}
+          sx={dashboardTitle}
           label={" Current BTC Market Price"}
         />
         <Grid container spacing={2} sx={{ marginBottom: 20 }}>

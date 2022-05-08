@@ -111,3 +111,10 @@ export const menuItem: React.CSSProperties = {
   padding: 10,
   height: 30,
 };
+
+export const dashboardTitle: SxProps<Theme> = {
+  marginY: 5,
+  fontSize: 16,
+  padding: 3,
+  backgroundColor: "#ffffff",
+};
