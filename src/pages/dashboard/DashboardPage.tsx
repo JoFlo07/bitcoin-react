@@ -1,10 +1,6 @@
 import { Chip, Container, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import {
-  btcValueChip,
-  statItemTitle,
-  titleFontStyle,
-} from "../../constants/style-props";
+import { btcValueChip, titleFontStyle } from "../../constants/style-props";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
 import { PageTitle, StorageKey } from "../../shared/models/enums";
@@ -64,9 +60,11 @@ export const DashboardPage = () => {
         )}
       </HeaderBar>
       <Container sx={{ overflow: "auto", height: "100%" }}>
-        <Typography sx={{ ...titleFontStyle, marginY: 5 }}>
-          Current BTC Market Price
-        </Typography>
+        <Chip
+          color="primary"
+          sx={{ marginY: 5, fontSize: 16, padding: 3 }}
+          label={" Current BTC Market Price"}
+        />
         <Grid container spacing={2} sx={{ marginBottom: 20 }}>
           {exChangeRates && renderExchangeRateCards(exChangeRates)}
         </Grid>
