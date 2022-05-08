@@ -58,6 +58,13 @@ export const convertedBTCText: SxProps<Theme> = {
   height: "100%",
 };
 
+export const appBar: SxProps<Theme> = {
+  height: 50,
+  display: "flex",
+  justifyContent: "center",
+  paddingX: 5,
+};
+
 export const appWrapper: SxProps<Theme> = {
   width: "100%",
   display: "flex",
@@ -94,4 +101,4 @@ export const menuItem: React.CSSProperties = {
   alignItems: "center",
   padding: 10,
   height: 30,
-}
+};
