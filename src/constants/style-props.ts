@@ -37,6 +37,7 @@ export const converterGrid: SxProps<Theme> = {
   paddingX: 1,
   border: "1px solid black",
   borderRadius: 5,
+  backgroundColor: '#ffffff'
 };
 export const converterGridMobile: SxProps<Theme> = {
   ...converterGrid,
