@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import * as Highcharts from "highcharts";
 import { useEffect } from "react";
 import { BTCChartDataPoint } from "../../../../shared/models/interfaces";
@@ -33,7 +34,7 @@ export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
         useHTML: true,
         style: {
           fontSize: "10px",
-          fontWeight: '500'
+          fontWeight: "500",
         },
         formatter: function (this: Highcharts.TooltipFormatterContextObject) {
           if (this) {
@@ -63,5 +64,9 @@ export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
     });
   }, [chartData]);
 
-  return <div id="chart-container"></div>;
+  return (
+    <Box sx={{ marginX: 2, marginY: 5 }}>
+      <div id="chart-container"></div>
+    </Box>
+  );
 };
