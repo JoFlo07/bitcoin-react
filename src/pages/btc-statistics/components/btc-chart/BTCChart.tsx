@@ -10,7 +10,6 @@ interface BTCChartProps {
 
 export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
   useEffect(() => {
-
     Highcharts.chart("chart-container", chartOption, (chart) => {
       if (chart) {
         chart.series[0].setData(chartData);
