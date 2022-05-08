@@ -1,5 +1,5 @@
 import { Chip, Paper, Typography } from "@mui/material";
-import { paperItem, statItemTitle } from "../../../../constants/default.styles";
+import { paperItem, statItemTitle } from "../../../../constants/sx-style-props";
 interface BTCStatisticItemProps {
   label: string;
   unit: string;

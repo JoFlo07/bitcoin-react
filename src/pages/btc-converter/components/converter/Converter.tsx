@@ -10,7 +10,7 @@ import NumberFormat, { NumberFormatValues } from "react-number-format";
 import {
   convertedBTCField,
   convertedBTCText,
-} from "../../../../constants/default.styles";
+} from "../../../../constants/sx-style-props";
 import { currencyOptions } from "../../../../constants/values";
 
 interface ConverterProps {
