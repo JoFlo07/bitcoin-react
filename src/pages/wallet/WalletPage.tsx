@@ -4,10 +4,12 @@ import {
   CardContent,
   Container,
   Typography,
+  AlertColor,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { NumberFormatValues } from "react-number-format";
+import CustomSnackbar from "../../shared/components/custom-snackbar/CustomSnackbar";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
 import { PageTitle } from "../../shared/models/enums";
@@ -17,6 +19,11 @@ import { BitcoinInput } from "./components/bitcoin-input/BitcoinInput";
 export const WalletPage = () => {
   const pageTitle = PageTitle.WALLET;
   const isMobile = useIsMobile();
+  const [snackBarOpen, setSnackBarOpen] = useState(false);
+  const [snackBarInfo, setSnackBarInfo] = useState({
+    msg: "BTC saved",
+    severity: "success" as AlertColor,
+  });
   const [btcAmount, setBtcAmount] = useState("");
 
   const handleInput = async (values: NumberFormatValues) => {
@@ -25,8 +32,18 @@ export const WalletPage = () => {
   };
 
   const onSave = (amount: string) => {
-    saveItemInStorage('mybtc', amount);
-    setBtcAmount("");
+    try {
+      saveItemInStorage("mybtc", amount);
+      setBtcAmount("");
+      setSnackBarOpen(true);
+    } catch (error) {
+      console.error(error);
+      setSnackBarOpen(true);
+      setSnackBarInfo({
+        msg: "Error Saving BTC",
+        severity: "error" as AlertColor,
+      });
+    }
   };
 
   return (
@@ -65,6 +82,10 @@ export const WalletPage = () => {
             </Box>
           </CardContent>
         </Card>
+        <CustomSnackbar
+          snackBarInfo={snackBarInfo}
+          snackBarOpen={snackBarOpen}
+        />
       </Container>
     </>
   );
