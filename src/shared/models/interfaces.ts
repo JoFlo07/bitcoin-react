@@ -1,3 +1,5 @@
+import { Palette, PaletteOptions } from "@mui/material";
+
 export interface ExChangeRate {
   [key: string]: {
     "15m": number;
@@ -29,4 +31,13 @@ export interface BTCChartData {
 export interface BTCChartDataPoint {
   x: number;
   y: number;
+}
+
+declare module "@mui/material/styles" {
+  interface Theme {
+    palette: Palette;
+  }
+  interface ThemeOptions {
+    palette?: PaletteOptions;
+  }
 }
