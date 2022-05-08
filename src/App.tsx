@@ -6,6 +6,7 @@ import { BTCDetailsPage } from "./pages/btc-details/BTCDetailsPage";
 import { BTCStatisticsPage } from "./pages/btc-statistics/BTCStatisticsPage";
 import { DashboardPage } from "./pages/dashboard/DashboardPage";
 import { SideMenu } from "./shared/components/side-menu/side-menu";
+import { MainRoutes } from "./shared/models/enums";
 
 const theme = createTheme({
   typography: {
@@ -35,10 +36,22 @@ function App() {
         </Box>
         <Box className="main-content">
           <Routes>
-            <Route path="/" element={<DashboardPage />}></Route>
-            <Route path="/statistics" element={<BTCStatisticsPage />}></Route>
-            <Route path="/converter" element={<BTCConverterPage />}></Route>
-            <Route path="/details" element={<BTCDetailsPage />}></Route>
+            <Route
+              path={MainRoutes.DASHBOARD}
+              element={<DashboardPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.STATISTICS}
+              element={<BTCStatisticsPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.CONVERTER}
+              element={<BTCConverterPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.DETAIL}
+              element={<BTCDetailsPage />}
+            ></Route>
           </Routes>
         </Box>
       </Box>
