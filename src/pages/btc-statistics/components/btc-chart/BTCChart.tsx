@@ -12,7 +12,7 @@ export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
       chart: {
         type: "line",
       },
-      title: { text: "BTC Market Value - last 12 months" },
+      title: { text: "Market Price (USD)" },
       credits: {
         enabled: false,
       },
@@ -22,28 +22,46 @@ export const BTCChart: React.FC<BTCChartProps> = ({ chartData }) => {
         tickInterval: 30 * 24 * 3600,
         labels: {
           formatter: function (data) {
-            return Highcharts.dateFormat("%B %y", +data.value * 1000);
+            return Highcharts.dateFormat("%b %y", +data.value * 1000);
           },
         },
       },
       yAxis: {
-        title: { text: "BTC Value" },
+        title: { text: "USD" },
+      },
+      tooltip: {
+        useHTML: true,
+        style: {
+          fontSize: "10px",
+          fontWeight: '500'
+        },
+        formatter: function (this: Highcharts.TooltipFormatterContextObject) {
+          if (this) {
+            const xValue = this.x as number;
+            const date = Highcharts.dateFormat("%d.%m.%y", xValue * 1000);
+            const btcValue = this.y;
+            return `
+            <p>Date: ${date}</p>
+            <p>USD: ${btcValue}</p>
+            `;
+          }
+        },
       },
       series: [
         {
           type: "line",
-          color: "#FF00FF",
+          color: "#f2a900",
           showInLegend: false,
+          name: "BTC Value",
         },
       ],
     };
     Highcharts.chart("chart-container", options, (chart) => {
       if (chart) {
-        console.log(chartData);
         chart.series[0].setData(chartData);
-        console.log(chart);
       }
     });
-  }, []);
+  }, [chartData]);
+
   return <div id="chart-container"></div>;
 };
