@@ -46,6 +46,8 @@ export const WalletPage = () => {
     }
   };
 
+  const onCloseSnackBar = () => setSnackBarOpen(false);
+
   return (
     <>
       <HeaderBar title={pageTitle} />
@@ -83,6 +85,7 @@ export const WalletPage = () => {
           </CardContent>
         </Card>
         <CustomSnackbar
+          onClose={onCloseSnackBar}
           snackBarInfo={snackBarInfo}
           snackBarOpen={snackBarOpen}
         />
