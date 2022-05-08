@@ -1,5 +1,6 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { titleFontStyle } from "../../constants/style-props";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
 import { PageTitle } from "../../shared/models/enums";
@@ -48,7 +49,10 @@ export const DashboardPage = () => {
     <>
       <HeaderBar title={pageTitle} />
       <Container sx={{ overflow: "auto", height: "100%" }}>
-        <Grid container spacing={2} sx={{ marginBottom: 20, marginTop: 5 }}>
+        <Typography sx={{ ...titleFontStyle, marginY: 5 }}>
+          Current BTC Market Price
+        </Typography>
+        <Grid container spacing={2} sx={{ marginBottom: 20 }}>
           {exChangeRates && renderExchangeRateCards(exChangeRates)}
         </Grid>
       </Container>
