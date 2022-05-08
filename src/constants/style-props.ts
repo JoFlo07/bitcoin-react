@@ -118,3 +118,10 @@ export const dashboardTitle: SxProps<Theme> = {
   padding: 3,
   backgroundColor: "#ffffff",
 };
+
+export const walletCard: SxProps<Theme> = {
+  width: "fit-content",
+  marginTop: 5,
+  borderRadius: 5,
+  padding: 2,
+};

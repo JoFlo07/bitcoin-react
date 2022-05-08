@@ -9,6 +9,7 @@ import {
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { NumberFormatValues } from "react-number-format";
+import { walletCard } from "../../constants/style-props";
 import CustomSnackbar from "../../shared/components/custom-snackbar/CustomSnackbar";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
@@ -53,12 +54,7 @@ export const WalletPage = () => {
       <HeaderBar title={pageTitle} />
       <Container sx={{ overflow: "auto", height: "100%" }}>
         <Card
-          sx={{
-            width: "fit-content",
-            marginTop: 5,
-            borderRadius: 5,
-            padding: 2,
-          }}
+          sx={walletCard}
         >
           <CardContent>
             <Typography fontSize={isMobile ? 16 : 18} fontWeight={500}>
