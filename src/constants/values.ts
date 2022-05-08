@@ -1,3 +1,5 @@
+import { Currency } from "../shared/models/enums";
+
 export const statsToLoad = [
   "hashrate",
   "marketcap",
@@ -7,4 +9,10 @@ export const statsToLoad = [
   "totalbc",
 ];
 
-export const currencyOptions = ["EUR", "USD", "AUD", "NZD", "GBP"];
+export const currencyOptions = [
+  Currency.EUR,
+  Currency.USD,
+  Currency.AUD,
+  Currency.NZD,
+  Currency.GBP,
+];

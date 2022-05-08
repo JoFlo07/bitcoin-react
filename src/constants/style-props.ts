@@ -18,6 +18,12 @@ export const statItemTitle: SxProps<Theme> = {
   marginBottom: 2,
 };
 
+export const btcValueChip: SxProps<Theme> = {
+  width: "fit-content",
+  display: "flex",
+  justifyContent: "flex-start",
+};
+
 export const paperItem: SxProps<Theme> = {
   height: 100,
   display: "flex",
@@ -37,6 +43,7 @@ export const converterGrid: SxProps<Theme> = {
   paddingX: 1,
   border: "1px solid black",
   borderRadius: 5,
+  backgroundColor: "#ffffff",
 };
 export const converterGridMobile: SxProps<Theme> = {
   ...converterGrid,
@@ -61,7 +68,9 @@ export const convertedBTCText: SxProps<Theme> = {
 export const appBar: SxProps<Theme> = {
   height: 50,
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
   paddingX: 5,
 };
 
@@ -101,4 +110,18 @@ export const menuItem: React.CSSProperties = {
   alignItems: "center",
   padding: 10,
   height: 30,
+};
+
+export const dashboardTitle: SxProps<Theme> = {
+  marginY: 5,
+  fontSize: 16,
+  padding: 3,
+  backgroundColor: "#ffffff",
+};
+
+export const walletCard: SxProps<Theme> = {
+  width: "fit-content",
+  marginTop: 5,
+  borderRadius: 5,
+  padding: 2,
 };
