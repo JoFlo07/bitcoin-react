@@ -4,7 +4,7 @@ import { NumberFormatValues } from "react-number-format";
 import {
   converterGrid,
   converterGridMobile,
-} from "../../constants/default.styles";
+} from "../../constants/style-props";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
 import { convertCurrencyToBTC } from "../../shared/services/api-service";

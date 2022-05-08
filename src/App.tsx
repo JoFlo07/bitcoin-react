@@ -1,25 +1,12 @@
-import {
-  createTheme,
-  Palette,
-  PaletteOptions,
-  ThemeProvider,
-} from "@mui/material";
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import { appWrapper, mainContent, sideContent } from "./constants/style-props";
 import { BTCConverterPage } from "./pages/btc-converter/BTCConverterPage";
 import { BTCDetailsPage } from "./pages/btc-details/BTCDetailsPage";
 import { BTCStatisticsPage } from "./pages/btc-statistics/BTCStatisticsPage";
 import { DashboardPage } from "./pages/dashboard/DashboardPage";
 import { SideMenu } from "./shared/components/side-menu/side-menu";
-
-declare module "@mui/material/styles" {
-  interface Theme {
-    palette: Palette;
-  }
-  interface ThemeOptions {
-    palette?: PaletteOptions;
-  }
-}
+import { MainRoutes } from "./shared/models/enums";
 
 const theme = createTheme({
   typography: {
@@ -35,27 +22,39 @@ const theme = createTheme({
     },
     secondary: {
       main: "#f7f7f7",
-      contrastText: "#2a2a2a"
-    }
+      contrastText: "#2a2a2a",
+    },
   },
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="app-wrapper">
-        <nav className="side-content">
+      <Box sx={appWrapper}>
+        <Box sx={sideContent}>
           <SideMenu />
-        </nav>
-        <div className="main-content">
+        </Box>
+        <Box sx={mainContent}>
           <Routes>
-            <Route path="/" element={<DashboardPage />}></Route>
-            <Route path="/statistics" element={<BTCStatisticsPage />}></Route>
-            <Route path="/converter" element={<BTCConverterPage />}></Route>
-            <Route path="/details" element={<BTCDetailsPage />}></Route>
+            <Route
+              path={MainRoutes.DASHBOARD}
+              element={<DashboardPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.STATISTICS}
+              element={<BTCStatisticsPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.CONVERTER}
+              element={<BTCConverterPage />}
+            ></Route>
+            <Route
+              path={MainRoutes.DETAIL}
+              element={<BTCDetailsPage />}
+            ></Route>
           </Routes>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
