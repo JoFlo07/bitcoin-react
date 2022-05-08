@@ -4,10 +4,12 @@ import React from "react";
 export const titleFontStyle: SxProps<Theme> = {
   fontSize: 20,
   fontWeight: 500,
+  padding: 2,
 };
 
 export const mobileTitleFontStyle: SxProps<Theme> = {
   fontSize: 16,
+  padding: 2,
   fontWeight: 500,
 };
 
@@ -27,6 +29,7 @@ export const btcValueChip: SxProps<Theme> = {
   width: "fit-content",
   display: "flex",
   justifyContent: "flex-start",
+  marginRight: 1
 };
 
 export const paperItem: SxProps<Theme> = {
@@ -76,7 +79,6 @@ export const appBar: SxProps<Theme> = {
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  paddingX: 3,
 };
 
 export const appWrapper: SxProps<Theme> = {
