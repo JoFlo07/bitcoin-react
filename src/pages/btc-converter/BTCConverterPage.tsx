@@ -7,11 +7,12 @@ import {
 } from "../../constants/style-props";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
 import useIsMobile from "../../shared/hooks/isMobile";
+import { PageTitle } from "../../shared/models/enums";
 import { convertCurrencyToBTC } from "../../shared/services/api-service";
 import { Converter } from "./components/converter/Converter";
 
 export const BTCConverterPage = () => {
-  const pageTitle = "BTC Converter";
+  const pageTitle = PageTitle.CONVERTER;
   const [displayAmount, setDisplayAmount] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");

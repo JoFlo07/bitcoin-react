@@ -2,12 +2,13 @@ import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { statsToLoad } from "../../constants/values";
 import { HeaderBar } from "../../shared/components/header-bar/header-bar";
+import { PageTitle } from "../../shared/models/enums";
 import { BTCStatistics } from "../../shared/models/interfaces";
 import { getBTCStatistic } from "../../shared/services/api-service";
 import { BTCStatisticCard } from "./components/btc-statistics-card/BtcStatisticsCard";
 
 export const BTCDetailsPage = () => {
-  const pageTitle = "Details";
+  const pageTitle = PageTitle.DETAIL;
   const [btcStats, setBtcStats] = useState<BTCStatistics>();
 
   useEffect(() => {

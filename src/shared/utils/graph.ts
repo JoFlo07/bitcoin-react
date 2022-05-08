@@ -1,4 +1,5 @@
 import * as Highcharts from "highcharts";
+import { Currency } from "../models/enums";
 
 export const tooltipFormatter = function (
   this: Highcharts.TooltipFormatterContextObject
@@ -33,7 +34,7 @@ export const chartOption: Highcharts.Options = {
     },
   },
   yAxis: {
-    title: { text: "USD" },
+    title: { text: Currency.USD },
   },
   tooltip: {
     useHTML: true,
