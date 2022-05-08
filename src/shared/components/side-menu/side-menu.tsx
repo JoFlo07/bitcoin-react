@@ -11,34 +11,34 @@ import {
   smMenuItemContainer,
 } from "../../../constants/style-props";
 import useIsMobile from "../../hooks/isMobile";
-import { MainRoutes } from "../../models/enums";
+import { MainRoutes, PageTitle } from "../../models/enums";
 
 export const SideMenu = () => {
   const isMobile = useIsMobile();
   const menuItems = [
     {
       path: MainRoutes.DASHBOARD,
-      title: "Dashboard",
+      title: PageTitle.DASHBOARD,
       icon: <GridViewIcon />,
     },
     {
       path: MainRoutes.DETAIL,
-      title: "Details",
+      title: PageTitle.DETAIL,
       icon: <FactCheckIcon />,
     },
     {
       path: MainRoutes.CONVERTER,
-      title: "Converter",
+      title: PageTitle.CONVERTER,
       icon: <CalculateIcon />,
     },
     {
       path: MainRoutes.STATISTICS,
-      title: "Statistics",
+      title: PageTitle.STATISTICS,
       icon: <TimelineIcon />,
     },
     {
       path: MainRoutes.WALLET,
-      title: "Wallet",
+      title: PageTitle.WALLET,
       icon: <AccountBalanceWalletIcon />,
     },
   ];

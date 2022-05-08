@@ -3,7 +3,7 @@ export enum MainRoutes {
   DETAIL = "/details",
   STATISTICS = "/statistics",
   CONVERTER = "/converter",
-  WALLET = "/wallet",
+  WALLET = "/my-bitcoin",
 }
 
 export enum PageTitle {
@@ -11,5 +11,5 @@ export enum PageTitle {
   DETAIL = "Details",
   STATISTICS = "Statistics",
   CONVERTER = "BTC Converter",
-  WALLET = "Wallet",
+  WALLET = "My Bitcoin",
 }
