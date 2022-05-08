@@ -56,3 +56,20 @@ export const convertedBTCText: SxProps<Theme> = {
   paddingRight: 2,
   height: "100%",
 };
+
+export const appWrapper: SxProps<Theme> = {
+  width: "100%",
+  display: "flex",
+};
+export const mainContent: SxProps<Theme> = {
+  backgroundColor: "#f7f7f7",
+  width: "85%",
+  height: "100vh",
+  overflow: "hidden",
+};
+export const sideContent: SxProps<Theme> = {
+  height: "100vh",
+  overflow: "hidden",
+  width: "15%",
+  backgroundColor: "#f2a900",
+};

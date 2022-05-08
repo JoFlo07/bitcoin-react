@@ -1,6 +1,6 @@
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import { appWrapper, mainContent, sideContent } from "./constants/sx-style-props";
 import { BTCConverterPage } from "./pages/btc-converter/BTCConverterPage";
 import { BTCDetailsPage } from "./pages/btc-details/BTCDetailsPage";
 import { BTCStatisticsPage } from "./pages/btc-statistics/BTCStatisticsPage";
@@ -30,11 +30,11 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Box className="app-wrapper">
-        <Box className="side-content">
+      <Box sx={appWrapper}>
+        <Box sx={sideContent}>
           <SideMenu />
         </Box>
-        <Box className="main-content">
+        <Box sx={mainContent}>
           <Routes>
             <Route
               path={MainRoutes.DASHBOARD}
