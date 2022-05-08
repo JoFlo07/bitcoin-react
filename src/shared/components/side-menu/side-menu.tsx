@@ -4,8 +4,12 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import {
+  menuItem,
+  menuItemContainer,
+  smMenuItemContainer,
+} from "../../../constants/style-props";
 import useIsMobile from "../../hooks/isMobile";
-import "./side-menu.css";
 
 export const SideMenu = () => {
   const isMobile = useIsMobile();
@@ -39,6 +43,7 @@ export const SideMenu = () => {
         to={item.path}
         style={({ isActive }) => {
           return {
+            ...menuItem,
             color: isActive ? "#e96f48" : "#ffffff",
             fontWeight: isActive ? 500 : 400,
           };
@@ -58,7 +63,7 @@ export const SideMenu = () => {
     ));
   };
   return (
-    <Box className={isMobile ? 'sm-menu-item-container' : 'menu-item-container'}>
+    <Box sx={isMobile ? smMenuItemContainer : menuItemContainer}>
       {renderMenuItems()}
     </Box>
   );

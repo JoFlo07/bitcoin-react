@@ -1,6 +1,6 @@
 import { AppBar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { titleFontStyle } from "../../../constants/sx-style-props";
+import { titleFontStyle } from "../../../constants/style-props";
 
 interface HeaderBarProps {
   title: string;

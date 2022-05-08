@@ -1,4 +1,5 @@
 import { SxProps, Theme } from "@mui/material";
+import React from "react";
 
 export const titleFontStyle: SxProps<Theme> = {
   fontSize: 20,
@@ -73,3 +74,24 @@ export const sideContent: SxProps<Theme> = {
   width: "15%",
   backgroundColor: "#f2a900",
 };
+
+export const menuItemContainer: SxProps<Theme> = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+};
+
+export const smMenuItemContainer: SxProps<Theme> = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+};
+
+export const menuItem: React.CSSProperties = {
+  textDecoration: "none",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: 10,
+  height: 30,
+}

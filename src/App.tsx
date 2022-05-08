@@ -1,6 +1,6 @@
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import { appWrapper, mainContent, sideContent } from "./constants/sx-style-props";
+import { appWrapper, mainContent, sideContent } from "./constants/style-props";
 import { BTCConverterPage } from "./pages/btc-converter/BTCConverterPage";
 import { BTCDetailsPage } from "./pages/btc-details/BTCDetailsPage";
 import { BTCStatisticsPage } from "./pages/btc-statistics/BTCStatisticsPage";
